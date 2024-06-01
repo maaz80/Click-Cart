@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Trade+Winds&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.akronim-regular {
+    font-family: "Akronim";
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .leckerli-one-regular {
+    font-family: "Leckerli One";
+    font-weight: 400;
+    font-style: normal;
+  }
+  .trade-winds-regular {
+    font-family: "Trade Winds";
+    font-weight: 400;
+    font-style: normal;
+  }
+  .text-45xl {
+    font-size: 2.05rem;
+  }
+
+  @keyframes float {
+    from{
+      top: 20px;
+    }
+    to{
+      top: 25px;
+    }
+  }
+  .imge {
+    animation: float 2s alternate infinite;
+  }
+  
+  @keyframes iconfloat {
+    from{
+      bottom: 18px;
+    }
+    to{
+      bottom: 21px;
+    }
+  }
+  .ic-float{
+    animation: iconfloat 1s alternate infinite;
+  }
+  .hide-scrollbar {
+    /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+  .details {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .details.show {
+    height: auto; /* This will be adjusted dynamically */
+    opacity: 1;
+  }
+
+  @keyframes iconrotate {
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+.ic-rotate{
+  animation: iconrotate 3s alternate infinite;
+}
+  @keyframes scaleup {
+    from{
+      transform: scale(1);
+    }
+    to{
+      transform: scale(1.1);
+    }
+  }
+.scaleup{
+  animation: scaleup 1s alternate infinite;
+}
