@@ -66,7 +66,7 @@ const Sale = () => {
                         <div className='flex flex-col md:flex-row bg-gradient-to-r from-yellow-400 to-yellow-100 w-[97%] mx-auto rounded-3xl mt-10 justify-center h-[75px] md:h-[200px] px-3'>
                             <div className='flex  justify-between items-center gap-6 md:gap-[35.5rem] text-red-700 font-extrabold '>
                                 <h1 className='leckerli-one-regular text-[20px] md:text-8xl opacity-90'>{item.title}</h1>
-                                <img className='h-[100%]  m-auto animate-rotate-3d absolute right-[36%] md:right-[41%]' src={item.img} alt="Images" />
+                                <img className='h-[100%]  m-auto animate-rotate-3d absolute right-[36%] md:right-[41%] imge' src={item.img} alt="Images" />
                                 <h1 className='leckerli-one-regular text-[15px] md:text-5xl opacity-90'>{item.title2}</h1>
                             </div>  
                         </div>

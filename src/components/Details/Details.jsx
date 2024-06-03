@@ -14,12 +14,14 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const detailsRef = useRef(null); // Ref for the details compartment
+  const [showMessage, setShowMessage] = useState(false);
+  const [messageText, setMessageText] = useState(""); // State for the message text
+  const detailsRef = useRef(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to top whenever productId changes
+    window.scrollTo(0, 0);
     if (detailsRef.current) {
-      detailsRef.current.scrollTop = 0; // Scroll details compartment to top
+      detailsRef.current.scrollTop = 0;
     }
     const findProduct = Data.find(item => item.id === parseInt(productId));
     setProduct(findProduct);
@@ -27,8 +29,8 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
   }, [productId]);
 
   const handleBuyNow = (product) => {
-    navigate('/address', { state: { product: product } })
-  }
+    navigate('/address', { state: { product: product } });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +43,16 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
 
     fetchData();
   }, []);
+
+  const handleFavoriteClick = (product) => {
+    handleAddToFavorite(product);
+    const isFavorite = favoriteList.some(item => item.id === product.id);
+    setMessageText(isFavorite ? "Removed from favorites!" : "Added to favorites!");
+    setShowMessage(true); // Show the message
+    setTimeout(() => {
+      setShowMessage(false); // Hide the message after 2 seconds
+    }, 2000);
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -81,10 +93,10 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
 
           {/* Buttons */}
           <div className="flex md:flex-row flex-col md:gap-5 md:mb-8 mb-5">
-            <button onClick={() => handleAddToFavorite(product)} className='bg-red-500 text-white px-4 py-2 rounded-md mt-5'>
+            <button onClick={() => handleFavoriteClick(product)} className='bg-red-500 text-white px-4 py-2 rounded-md mt-5'>
               {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
             </button>
-            <button onClick={()=>handleBuyNow(product)} className='bg-yellow-500 text-white px-4 py-2 rounded-md mt-5'>Buy Now</button>
+            <button onClick={() => handleBuyNow(product)} className='bg-yellow-500 text-white px-4 py-2 rounded-md mt-5'>Buy Now</button>
           </div>
 
           {/* Suggestions */}
@@ -120,6 +132,12 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
       <div className="fixed bottom-7 right-7 md:bottom-14 md:right-14 bg-red-400 p-4 rounded-[50%] text-xl ic-float z-500">
         <BiChat />
       </div>
+      {/* Message */}
+      {showMessage && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white p-4 rounded-md shadow-lg z-50">
+          {messageText}
+        </div>
+      )}
     </div>
   );
 };
