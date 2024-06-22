@@ -14,7 +14,6 @@ const Products = () => {
     async function fetchData() {
         setLoading(true)
         try {
-
             setdata(Data);
         } catch (error) {
             seterror(error)

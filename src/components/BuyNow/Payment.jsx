@@ -12,7 +12,7 @@ const Payment = () => {
   const priceDetailsRef = useRef(null);
   const cardDetailsRef = useRef(null);
   const upiDetailsRef = useRef(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleToggle = (setter, ref) => {
     setter(prev => !prev);
@@ -32,6 +32,21 @@ const Payment = () => {
       upiDetailsRef.current.style.height = showUpiDetails ? `${upiDetailsRef.current.scrollHeight}px` : '0px';
     }
   }, [showPriceDetails, showCardDetails, showUpiDetails]);
+
+
+  const handleOrderedProduct = () => {
+    let savedProducts = JSON.parse(localStorage.getItem("orderedProducts")) || [];
+    product.date= new Date().toISOString();
+
+    if (!Array.isArray(savedProducts)) {
+      console.error("Saved products is not an array, resetting to an empty array");
+      savedProducts = [];
+    }
+
+    savedProducts.push(product);
+    localStorage.setItem("orderedProducts", JSON.stringify(savedProducts));
+    navigate("/orderplaced", { state: { product } });
+  };
 
   return (
     <div>
@@ -115,20 +130,19 @@ const Payment = () => {
       </div>
 
       {/* C.O.D */}
-      <div className='md:w-[60%] w-[95%] border rounded-lg m-auto mt-10 min-h-[32px] '>
+      <div className='md:w-[60%] w-[95%] border rounded-lg m-auto mt-10 min-h-[32px]'>
         <div className='flex items-center justify-between px-4 cursor-pointer'>
-          <strong className='text-[16px] md:text-lg mr-3 font-bold flex items-center gap-2 '>
+          <strong className='text-[16px] md:text-lg mr-3 font-bold flex items-center gap-2'>
             <span><BiRupee /></span>Cash on Delivery
           </strong>
-          <span> <input className='border rounded-sm px-2  ' type='checkbox' /></span>
+          <span><input className='border rounded-sm px-2' type='checkbox' /></span>
         </div>
-
       </div>
 
-        {/* Button */}
-        <div className='w-[100%]  justify-center flex mt-10'>
-          <button onClick={() => navigate('/orderplaced')} className='bg-yellow-500 text-white px-1  py-2 md:px-4 md:py-2 rounded-md mt-5  text-[16px] md:text-lg md:mt-12  md:w-[60%] w-[95%]'>Place Order</button>
-        </div>
+      {/* Button */}
+      <div className='w-[100%] justify-center flex mt-10'>
+        <button onClick={handleOrderedProduct} className='bg-yellow-500 text-white px-1 py-2 md:px-4 md:py-2 rounded-md mt-5 text-[16px] md:text-lg md:mt-12 md:w-[60%] w-[95%]'>Place Order</button>
+      </div>
     </div>
   );
 };

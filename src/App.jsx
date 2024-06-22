@@ -9,6 +9,8 @@ import Confirmation from "./components/BuyNow/Confirmation";
 import Payment from "./components/BuyNow/Payment";
 import OrderPlaced from "./components/BuyNow/OrderPlaced";
 import SearchPro from "./components/Searchedpro/SearchPro";
+import Profile from "./components/Profile/Profile";
+import MyOrders from "./components/MyOrders/MyOrders";
 
 export default function App() {
   const [favoriteList, setFavoriteList] = useState(() => {
@@ -47,6 +49,8 @@ export default function App() {
         <Route path="/payment" element={<Payment/>}/>
         <Route path="/orderplaced" element={<OrderPlaced/>}/>
         <Route path="/search" element={<SearchPro/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/myorders" element={<MyOrders/>}/>
       </Routes>
     </div>
   );
