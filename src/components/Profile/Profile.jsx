@@ -84,19 +84,19 @@ const Profile = () => {
                     <BiRightArrow />
                 </button>
                 <div
-                    className={`absolute md:relative md:flex flex-col w-[52%] md:w-[18%] gap-4 transition-transform duration-300 top-[105px] md:top-0 z-10 ${isSidebar ? 'translate-x-[-216px]' : 'translate-x-[-21px]'} md:translate-x-0`}
+                    className={`absolute md:relative md:flex flex-col w-[39%] md:w-[18%] gap-4 transition-transform duration-300 top-[105px] md:top-0 z-10 ${isSidebar ? 'translate-x-[-216px]' : 'translate-x-[-21px]'} md:translate-x-0`}
                 >
-                    <div className='bg-white rounded-md flex justify-start items-center gap-4 h-20 border border-gray-200 text-[15px] md:text-lg'>
-                        <div><img className='rounded-[50%] ml-3' width={50} src={profilePhoto} alt="Profile" /></div>
-                        <div>
+                    <div className='bg-white rounded-md flex justify-start items-center gap-4 h-[3rem] md:h-20 border border-gray-200 text-[10px] md:text-lg'>
+                        <div className='w-[40%] flex justify-center items-center h-[100%] ml-[-13px]'><img className='rounded-[50%] ml-3 w-[52%] h-[64%] md:w-[100%]' width={50} src={profilePhoto} alt="Profile" /></div>
+                        <div className='ml-[-22px]'>
                             <div>Hello!</div>
                             <div className='font-bold'>{username}</div>
                         </div>
                     </div>
                     <div className='bg-white rounded-md'>
-                        <ul className='bg-white text-[15px] md:text-lg z-10 text-end gap-3 flex flex-col rounded-md border border-gray-200'>
+                        <ul className='bg-white text-[10px] md:text-lg z-10 text-end gap-3 flex flex-col rounded-md border border-gray-200 '>
                             <li
-                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8 rounded-t-md"
+                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8 rounded-t-md"
                                 onClick={handleProfile}
                             >
                                 <NavLink className="flex gap-3 items-center w-[100%] hover:text-red-700" to="/profile">
@@ -104,24 +104,24 @@ const Profile = () => {
                                 </NavLink>
                             </li>
                             <li
-                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 hover:text-red-700 cursor-pointer w-[100%] px-3 py-0 md:py-1 pr-8"
+                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 hover:text-red-700 cursor-pointer w-[100%] px-3 py-1 md:py-1 pr-8"
                                 onClick={handleOrder}
                             >
                                 <BsBox />My Orders
                             </li>
-                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8">
+                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8">
                                 <FaShippingFast />Shipping Address
                             </li>
-                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8">
+                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8">
                                 <MdAccountBox />Change Account
                             </li>
-                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8 rounded-b-md">
+                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8 rounded-b-md">
                                 <CgPassword />Change Password
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div className="bg-white rounded-md w-[100%] md:w-[78%] border border-gray-200 shadow-sm text-[15px] md:text-lg p-5">
+                <div className="bg-white rounded-md w-[100%] md:w-[78%] border-none md:border border-gray-200 shadow-sm text-[15px] md:text-lg p-[9px] md:p-5">
                     {isProfile &&
                         <div>
                             <div className='text-2xl text-gray-500 font-semibold marker:l-0 md:ml-2'>
