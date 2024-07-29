@@ -14,13 +14,13 @@ export default function Navbar() {
     const dropdownRef = useRef(null);
 
     const handleSearch = (e) => {
-        if (e.key === 'Enter') {
-            navigate(`/search?query=${searchQuery}`);
+        if (e.key === 'Enter' && searchQuery.trim()) {
+            navigate(`/search?category=${encodeURIComponent(searchQuery.trim())}`);
         }
     };
 
     const handleProfile = () => {
-        setDropdown(!dropdown);
+        setDropdown(prev => !prev);
     };
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Navbar() {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [dropdownRef]);
+    }, []);
 
     return (
         <div className="flex items-center justify-between p-2 rounded-b-xl md:rounded-none bg-transparent poppins-regular">
@@ -55,10 +55,11 @@ export default function Navbar() {
                 onKeyDown={handleSearch}
             />
             <datalist id="suggestions">
-                <option value="Jeans"></option>
-                <option value="Shirts"></option>
+                <option value="Mobiles"></option>
+                <option value="VR"></option>
                 <option value="Watches"></option>
-                <option value="Caps"></option>
+                <option value="Speakers"></option>
+                <option value="Laptops"></option>
             </datalist>
             <div className="text-2xl flex gap-6 md:gap-10 pr-1 relative" ref={dropdownRef}>
                 <NavLink className="hover:text-red-600" to='/login'>
@@ -77,17 +78,17 @@ export default function Navbar() {
                                 <BiHome /> Home
                             </NavLink>
                         </li>
-                        <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8 ">
+                        <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8">
                             <NavLink className="flex gap-3 items-center w-[100%] hover:text-red-400" to="/profile">
                                 <CgProfile /> Profile
                             </NavLink>
                         </li>
-                        <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8 ">
+                        <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8">
                             <NavLink className="flex gap-3 items-center w-[100%] hover:text-red-400" to="/support">
                                 <BiSupport /> 24*7 Support
                             </NavLink>
                         </li>
-                        <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8 ">
+                        <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8">
                             <NavLink className="flex gap-3 items-center w-[100%] hover:text-red-400" to="/aboutus">
                                 <MdDetails /> About Us
                             </NavLink>
@@ -97,7 +98,6 @@ export default function Navbar() {
                                 <BiLogInCircle /> {!login ? "SignUp/Login" : "Logout"}
                             </NavLink>
                         </li>
-
                     </ul>
                 }
             </div>

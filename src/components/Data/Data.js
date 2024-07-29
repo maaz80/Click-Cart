@@ -14,7 +14,7 @@ const Data = [
         "image": Iphone,
         "features": ["A15 Bionic chip", "5G connectivity", "Dual 12MP cameras", "6.1-inch Super Retina XDR display"],
         "details": ["Available in multiple colors", "Ceramic Shield front cover", "Supports MagSafe accessories"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 2,
@@ -74,7 +74,7 @@ const Data = [
         "image": Iphone,
         "features": ["Exynos 2100", "120Hz AMOLED display", "Triple camera setup", "4000mAh battery"],
         "details": ["5G connectivity", "IP68 water and dust resistance", "Wireless PowerShare"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 8,
@@ -134,7 +134,7 @@ const Data = [
         "image": Iphone,
         "features": ["Google Tensor chip", "50MP camera", "Pure Android experience", "5G connectivity"],
         "details": ["Fast charging", "High refresh rate display", "Water and dust resistant"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 14,
@@ -194,7 +194,7 @@ const Data = [
         "image": Iphone,
         "features": ["Snapdragon 888", "120Hz Fluid AMOLED display", "Hasselblad camera", "4500mAh battery"],
         "details": ["5G connectivity", "Warp Charge 65T", "Wireless charging"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 20,
@@ -254,7 +254,7 @@ const Data = [
         "image": Iphone,
         "features": ["Snapdragon 888", "108MP camera", "120Hz AMOLED display", "4600mAh battery"],
         "details": ["Fast charging", "Wireless charging", "Harman Kardon speakers"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 26,
@@ -314,7 +314,7 @@ const Data = [
         "image": Iphone,
         "features": ["Snapdragon 765G", "12.2MP dual-pixel camera", "Pure Android experience", "5G connectivity"],
         "details": ["Long battery life", "IP67 water and dust resistance", "Fast charging"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 32,
@@ -374,7 +374,7 @@ const Data = [
         "image": Iphone,
         "features": ["Snapdragon 870", "6.7-inch 90Hz display", "Quad-camera system", "5000mAh battery"],
         "details": ["5G connectivity", "Near-stock Android experience", "Ready For platform"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 38,
@@ -414,7 +414,7 @@ const Data = [
         "image": Iphone,
         "features": ["Snapdragon 888", "50MP camera", "Secondary display", "5000mAh battery"],
         "details": ["120X zoom", "IP68 water and dust resistant", "Harman Kardon sound"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 42,
@@ -474,7 +474,7 @@ const Data = [
         "image": Iphone,
         "features": ["MediaTek Dimensity 1200", "90Hz AMOLED display", "50MP triple camera", "4500mAh battery"],
         "details": ["5G connectivity", "Warp Charge 65", "OxygenOS based on Android 11"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 48,
@@ -534,7 +534,7 @@ const Data = [
         "image": Iphone,
         "features": ["Snapdragon 730G", "5.8-inch OLED display", "12.2MP dual-pixel camera", "3140mAh battery"],
         "details": ["Android 11 with three years of updates", "Titan M security module"],
-        "category": "Smartphones"
+        "category": "Mobiles"
     },
     {
         "id": 54,

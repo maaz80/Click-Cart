@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
-  const handleSearch = (e) => {
-      if (e.key === 'Enter') {
-          navigate(`/search?query=${searchQuery}`);
-      }
-  };
-  return (
-    <div className='m-auto flex justify-center items-center'>
-           <input className="text-sm rounded-md px-2 relative bg-transparent border border-black w-[90%]  h-8 my-3  "  type="text"
+    const handleSearch = (e) => {
+        if (e.key === 'Enter' && searchQuery.trim()) {
+            navigate(`/search?category=${encodeURIComponent(searchQuery.trim())}`);
+        }
+    };
+
+    const suggestions = ['Mobiles', 'HeadSets', 'Watches', 'Vr Box'];
+
+    return (
+        <div className='m-auto flex justify-center items-center'>
+            <input
+                className="text-sm rounded-md px-2 relative bg-transparent border border-black w-[90%] h-8 my-3"
+                type="text"
                 placeholder="Search Items"
                 list="suggestions"
                 value={searchQuery}
@@ -20,13 +25,14 @@ const SearchBar = () => {
                 onKeyDown={handleSearch}
             />
             <datalist id="suggestions">
-                <option value='Mobiles'></option>
-                <option value='HeadSets'></option>
-                <option value='Watches'></option>
-                <option value='Vr Box'></option>
+                {suggestions
+                    .filter((suggestion) => suggestion.toLowerCase().includes(searchQuery.toLowerCase()))
+                    .map((suggestion, index) => (
+                        <option key={index} value={suggestion}></option>
+                    ))}
             </datalist>
-    </div>
-  )
-}
+        </div>
+    );
+};
 
-export default SearchBar
+export default SearchBar;

@@ -16,6 +16,7 @@ import Support from "./components/Support/Support";
 import Login from "./components/Login/Login";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/SearchBar/SearchBar"
 
 export default function App() {
   const [favoriteList, setFavoriteList] = useState(() => {
@@ -61,6 +62,7 @@ export default function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/aboutus" element={<AboutUs/>}/>
         <Route path="/footer" element={<Footer/>}/>
+        <Route path="/searchbar" element={<SearchBar/>}/>
       </Routes>
     </div>
   );

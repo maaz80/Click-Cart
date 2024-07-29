@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const OrderPlaced = () => {
     const location = useLocation();
     const { product, paymentMethod, address } = location.state || {};
+
+    const [showVictory, setShowVictory] = useState(true);
+
+    useEffect(() => {
+        // Check sessionStorage to determine if victory effect should be shown
+        const suppressVictoryEffect = sessionStorage.getItem('suppressVictoryEffect');
+        if (suppressVictoryEffect === 'true') {
+            setShowVictory(false);
+            sessionStorage.removeItem('suppressVictoryEffect'); 
+        } else {
+            const timer = setTimeout(() => {
+                setShowVictory(false);
+            }, 1000); 
+
+            return () => clearTimeout(timer); 
+        }
+    }, []);
 
     const orderDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
@@ -28,11 +45,18 @@ const OrderPlaced = () => {
 
     return (
         <div className="poppins-regular p-6 max-w-2xl mx-auto shadow-none md:shadow-lg rounded-lg bg-white">
+            {showVictory && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-50">
+                    <div className="text-lg md:text-xl font-bold text-white bg-green-500 p-4 rounded-lg shadow-lg">
+                        🎉 Order Placed Successfully! 🎉
+                    </div>
+                </div>
+            )}
             <h1 className="text-4xl font-bold mb-6 text-center text-indigo-600 underline">Order Summary</h1>
             <div className="mb-6">
                 <h2 className="text-2xl font-semibold text-gray-700 mb-4">Product Details</h2>
                 <div className="flex items-center mb-4 bg-gray-100 p-4 rounded-lg shadow-inner h-[75px] md:h-[152px]">
-                    <img src={product.image} alt={product.title} className="w-16 md:w-32 h-16 md:h-32  rounded-lg mr-4 shadow-md p-1"  />
+                    <img src={product.image} alt={product.title} className="w-16 md:w-32 h-16 md:h-32 rounded-lg mr-4 shadow-md p-1"  />
                     <div>
                         <p className="text-lg md:text-xl font-medium text-gray-800">{product.title}</p>
                         <p className="text-sm md:text-xl text-gray-600">₹{(product.price - (product.price * 0.25)).toFixed(2)}</p>

@@ -4,6 +4,7 @@ import Headphone from "../../images/Headphone.png";
 import Watch from "../../images/Watch.png";
 import Laptop from "../../images/Laptop.png";
 import Assured from "../../images/Assured.png";
+import Up from "../../images/Up.png";
 import Star from "../../images/Star.webp"
 import Data from '../Data/Data'
 import Ps5 from "../../images/Ps5.png";
@@ -97,9 +98,12 @@ export default function Home() {
 
   }, []);
 
-
+const handleUp=()=>{
+  window.scrollTo({top: 0 ,behavior:"smooth"})
+}
   return (
     <div>
+        <img src={Up} alt="Up"  className=" bottom-5 right-5 z-50 fixed w-[35px] md:w-[50px] " onClick={handleUp}/>
       <div className="block md:hidden">
         <SearchBar />
       </div>
@@ -169,7 +173,7 @@ export default function Home() {
             width="w-[90px]"
             mdwidth="md:w-[200px]"
             right="right-[0px] md:right-[5px]"
-            category="Smartphones" // Added category
+            category="Mobiles" // Added category
           />
           <BigCard
             bgColor="bg-gradient-to-r from-purple-600 to-purple-200"

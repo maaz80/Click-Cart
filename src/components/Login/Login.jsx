@@ -28,9 +28,9 @@ const Login = () => {
     }
     return (
         <div>
-            <div className='w-[100%] h-[680px] lg:h-[620px]  px-4 lg:px-32 pt-8 lg:pt-24  flex flex-col-reverse lg:flex-row'>
-                <div className='w-[100%] lg:w-[65%] mt-8'>
-                   <img src={ECom} alt="ECom" className='h-[90%] w-[100%] lg:w-[90%] object-cover rounded-tr-3xl rounded-bl-3xl' />
+            <div className='w-[100%] h-[680px] lg:h-[620px]  px-4 lg:px-32 pt-8 lg:pt-24  flex flex-col-reverse lg:flex-row border-t'>
+                <div className='w-[100%] lg:w-[65%] mt-8 md:mt-0'>
+                   <img src={ECom} alt="ECom" className='h-[90%] md:h-[80%] w-[100%] lg:w-[90%] object-cover rounded-tr-3xl rounded-bl-3xl' />
                 </div>
                 {isSignIn &&
                     <div className='w-[100%] lg:w-[35%] signIn mt-16 lg:mt-0'>

@@ -12,7 +12,7 @@ const MyOrders = () => {
   useEffect(() => {
     const savedProducts = JSON.parse(localStorage.getItem('orderedProducts'));
     if (savedProducts && Array.isArray(savedProducts)) {
-      const reversedProducts = savedProducts.reverse()
+      const reversedProducts = savedProducts.reverse();
       setOrderedProducts(reversedProducts);
       setFilteredProducts(reversedProducts);
     }
@@ -60,6 +60,9 @@ const MyOrders = () => {
   };
 
   const handleOrderClick = (product) => {
+    // Set flag to suppress victory effect
+    sessionStorage.setItem('suppressVictoryEffect', 'true');
+
     navigate('/orderplaced', { 
       state: { 
         product: { ...product }, 
@@ -68,7 +71,6 @@ const MyOrders = () => {
       } 
     });
   };
-  
 
   return (
     <div className='min-h-[284px]'>
