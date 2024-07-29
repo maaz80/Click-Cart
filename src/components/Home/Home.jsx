@@ -196,7 +196,7 @@ export default function Home() {
         <Sale />
       </div>
 
-      <div>
+      <div className="poppins-regular">
         {loading && <div>Loading plaese wait......</div>}
         {error && <div>Error:{error.message}</div>}
         {
