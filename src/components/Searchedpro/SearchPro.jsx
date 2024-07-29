@@ -16,7 +16,7 @@ const SearchPro = () => {
 
     return (
         <div className='poppins-regular'>
-            <h1 className='text-center font-serif text-2xl my-4 trade-winds-regular'>
+            <h1 className='text-center font-serif text-lg md:text-2xl my-4 trade-winds-regular'>
                 Search Results for "{category}"
             </h1>
             <div className='flex flex-wrap justify-around items-center'>
