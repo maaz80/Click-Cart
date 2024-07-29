@@ -20,10 +20,10 @@ const SearchBar = () => {
                 onKeyDown={handleSearch}
             />
             <datalist id="suggestions">
-                <option value='Jeans'></option>
-                <option value='Shirts'></option>
+                <option value='Mobiles'></option>
+                <option value='HeadSets'></option>
                 <option value='Watches'></option>
-                <option value='Caps'></option>
+                <option value='Vr Box'></option>
             </datalist>
     </div>
   )

@@ -11,6 +11,11 @@ import OrderPlaced from "./components/BuyNow/OrderPlaced";
 import SearchPro from "./components/Searchedpro/SearchPro";
 import Profile from "./components/Profile/Profile";
 import MyOrders from "./components/MyOrders/MyOrders";
+import ShipAddress from "./components/Address/ShipAddress";
+import Support from "./components/Support/Support";
+import Login from "./components/Login/Login";
+import AboutUs from "./components/AboutUs/AboutUs";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   const [favoriteList, setFavoriteList] = useState(() => {
@@ -51,6 +56,11 @@ export default function App() {
         <Route path="/search" element={<SearchPro/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/myorders" element={<MyOrders/>}/>
+        <Route path="/shipping" element={<ShipAddress/>}/>
+        <Route path="/support" element={<Support/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/aboutus" element={<AboutUs/>}/>
+        <Route path="/footer" element={<Footer/>}/>
       </Routes>
     </div>
   );

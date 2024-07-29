@@ -9,10 +9,10 @@ const Confirmation = () => {
     const navigate = useNavigate();
 
     const handleSubmit=(item)=>{
-navigate('/payment' , {state:{product:item}})
+navigate('/payment' , {state:{product:item ,address}})
     }
     return (
-        <div >
+        <div className='poppins-regular'>
             {/* Dots */}
             <div className='flex justify-center items-center w-[80%] md:w-[50%] m-auto mt-5'>
                 <span className="dot1 w-4 h-4 md:w-6 md:h-6 rounded-[50%] bg-blue-400 text-[10px] text-center flex items-center justify-center"><TiTick /></span>
@@ -24,7 +24,7 @@ navigate('/payment' , {state:{product:item}})
 
             {/* Price Details */}
             {product && address && (
-                <div className='w-[90%] flex flex-col md:flex-row m-auto h-[50%] mt-5 gap-4'>
+                <div className='w-[90%] flex flex-col md:flex-row m-auto h-[50%] mt-5 gap-4 '>
                     <div className='h-[50%] w-[100%] md:w-[30%] border rounded-xl p-3'>
                         <img className='' src={product.image} alt="Product" />
                     </div>

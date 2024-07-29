@@ -69,7 +69,7 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
   const isFavorite = favoriteList.some(item => item.id === product.id);
 
   return (
-    <div className='bg-gray-100 min-h-screen flex items-center justify-center pb-7'>
+    <div className='bg-gray-100 min-h-[95vh] flex items-center justify-center pb-7 poppins-regular'>
       <div className='bg-white w-[95%] md:w-[85%] gap-5 h-full m-auto p-5 flex md:flex-row flex-col rounded-xl mt-6'>
         {/* Image Compartment */}
         <div className='w-[99%] md:w-[40%] md:h-[600px] h-[320px] border border-gray-400 p-5 flex justify-center items-center rounded-xl bg-gray-100'>
@@ -77,7 +77,7 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
         </div>
 
         {/* Details Compartment */}
-        <div ref={detailsRef} className='w-[99%] md:w-[60%] border p-5 flex flex-col rounded-xl border-gray-400 md:h-[600px] overflow-scroll scroll-smooth hide-scrollbar'>
+        <div ref={detailsRef} className='w-[99%] md:w-[60%] border p-5 md:p-10 flex flex-col rounded-xl border-gray-400 md:h-[600px] overflow-scroll scroll-smooth hide-scrollbar'>
           <h1 className='text-2xl font-bold mb-4'>{product.title}</h1>
           <div className="flex gap-3 ">
             <span className='text-lg mb-4'>₹{product.price}</span>
@@ -134,7 +134,7 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
       </div>
       {/* Message */}
       {showMessage && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white p-4 rounded-md shadow-lg z-50">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white p-2 md:p-4 w-60 text-center rounded-md shadow-lg z-50">
           {messageText}
         </div>
       )}

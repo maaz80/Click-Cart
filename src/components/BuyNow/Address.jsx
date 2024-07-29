@@ -26,7 +26,8 @@ const Address = () => {
   };
 
   return (
-    <div>
+    <div className='poppins-regular'>
+      
       {/* Dots */}
       <div className='flex justify-center items-center w-[80%] md:w-[50%] m-auto mt-5'>
         <span className="dot1 w-4 h-4 md:w-6 md:h-6 rounded-[50%] bg-blue-400 text-[10px] text-center flex items-center justify-center">1</span>
@@ -38,6 +39,10 @@ const Address = () => {
 
       {/* Address Box */}
       <form onSubmit={handleSubmit} className='w-[90%] md:w-[80%] border m-auto mt-6 md:mt-10 p-5 gap-6 rounded-md'>
+      <div className='text-2xl text-gray-500 font-semibold marker:l-0 md:ml-2'>
+                            Shipping Address
+                        </div>
+                        <div className='h-1 w-[100%] bg-gray-500 mt-3 mb-10'></div>
         <div className="name flex flex-col md:flex-row w-[100%] mb-4 gap-4">
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
             <span className='text-sm'>First Name</span>

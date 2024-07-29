@@ -301,7 +301,7 @@ const Data = [
         "title": "Samsung Odyssey G9",
         "description": "49\" curved gaming monitor with 240Hz refresh rate, QLED technology, and immersive experience.",
         "price": 149900,
-        "image": Vr,
+        "image": Laptop,
         "features": ["49-inch curved display", "240Hz refresh rate", "QLED technology", "1ms response time"],
         "details": ["Dual QHD resolution", "HDR1000", "NVIDIA G-SYNC Compatible"],
         "category": "Monitors"

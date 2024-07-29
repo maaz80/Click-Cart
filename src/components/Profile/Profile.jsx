@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Logo from "../../images/Logo.png";
+import Right from "../../images/Right.png";
+import Left from "../../images/Left.png";
 import { PiPencil } from 'react-icons/pi';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { CgPassword } from 'react-icons/cg';
 import { BsBox } from 'react-icons/bs';
 import { MdAccountBox } from 'react-icons/md';
 import { ImProfile } from 'react-icons/im';
 import { FaShippingFast } from 'react-icons/fa';
 import MyOrders from '../MyOrders/MyOrders';
-import { BiRightArrow } from 'react-icons/bi';
+import ShipAddress from '../Address/ShipAddress';
+import ChangeAccount from '../ChangeAccount/ChangeAccount';
+import ChangePassword from '../ChangePassword/ChangePassword';
 
 const Profile = () => {
     const [profilePhoto, setProfilePhoto] = useState(Logo);
@@ -18,9 +22,15 @@ const Profile = () => {
     const [userEmail, setUserEmail] = useState("maazforlap@gmail.com");
     const [gender, setGender] = useState("male");
     const [isEditing, setIsEditing] = useState(false);
-    const [isProfile, setIsProfile] = useState(true)
-    const [isOrder, setIsOrder] = useState(false)
-    const [isSidebar, setIsSidebar] = useState(false)
+    const [isProfile, setIsProfile] = useState(true);
+    const [isOrder, setIsOrder] = useState(false);
+    const [isAddress, setIsAddress] = useState(false);
+    const [isChangeAccount, setIsChangeAccount] = useState(false);
+    const [isChangePassword, setIsChangePassword] = useState(false);
+    const [isSidebar, setIsSidebar] = useState(false);
+    const location = useLocation();
+    const sideBarRef = useRef(null);
+
 
     useEffect(() => {
         const savedProfile = localStorage.getItem('profile');
@@ -62,41 +72,78 @@ const Profile = () => {
     };
 
     const handleProfile = () => {
-        setIsProfile(true)
-        setIsOrder(false)
+        setIsProfile(true);
+        setIsOrder(false);
+        setIsAddress(false);
+        setIsSidebar(false);
+        setIsChangeAccount(false);
+        setIsChangePassword(false)
     }
+
     const handleOrder = () => {
-        setIsOrder(true)
-        setIsProfile(false)
+        setIsOrder(true);
+        setIsProfile(false);
+        setIsAddress(false);
+        setIsSidebar(false);
+        setIsChangeAccount(false);
+        setIsChangePassword(false)
     }
+    const handleAddress = () => {
+        setIsOrder(false);
+        setIsProfile(false);
+        setIsAddress(true);
+        setIsSidebar(false);
+        setIsChangeAccount(false);
+        setIsChangePassword(false)
+    }
+    const handleChangeAccount = () => {
+        setIsOrder(false);
+        setIsProfile(false);
+        setIsAddress(false);
+        setIsSidebar(false);
+        setIsChangeAccount(true);
+        setIsChangePassword(false)
+    }
+    const handleChangePassword = () => {
+        setIsOrder(false);
+        setIsProfile(false);
+        setIsAddress(false);
+        setIsSidebar(false);
+        setIsChangeAccount(false);
+        setIsChangePassword(true)
+    }
+
 
     const handleSidebar = () => {
         setIsSidebar(!isSidebar);
-    }
+    };
+
 
     return (
         <div>
-            <div className='w-[100%] md:w-[92%] rounded-md m-auto p-5 flex gap-5'>
+            <div className='w-[100%] md:w-[92%] rounded-md m-auto p-5 flex gap-5 poppins-regular'>
                 <button
-                    className='fixed top-16 bg-white border rounded-md p-3 left-[-5px] flex md:hidden'
+                    className='fixed top-10 md:top-16 bg-white border rounded-md p-1 md:p-3 left-[-5px] flex md:hidden'
                     onClick={handleSidebar}
                 >
-                    <BiRightArrow />
+                    <img src={`${isSidebar ? Left : Right} `} alt="Right" width={19} />
                 </button>
                 <div
-                    className={`absolute md:relative md:flex flex-col w-[39%] md:w-[18%] gap-4 transition-transform duration-300 top-[105px] md:top-0 z-10 ${isSidebar ? 'translate-x-[-216px]' : 'translate-x-[-21px]'} md:translate-x-0`}
+                    className={`absolute md:relative md:flex flex-col w-[39%] md:w-[18%] gap-4 transition-transform duration-300 top-[68px] md:top-0 z-10 ${isSidebar ? 'translate-x-[-21px]' : 'translate-x-[-216px]'} md:translate-x-0`}
                 >
                     <div className='bg-white rounded-md flex justify-start items-center gap-4 h-[3rem] md:h-20 border border-gray-200 text-[10px] md:text-lg'>
-                        <div className='w-[40%] flex justify-center items-center h-[100%] ml-[-13px]'><img className='rounded-[50%] ml-3 w-[52%] h-[64%] md:w-[100%]' width={50} src={profilePhoto} alt="Profile" /></div>
+                        <div className='w-[40%] flex justify-center items-center h-[100%] ml-[-13px]'>
+                            <img className='rounded-[50%] ml-3 w-[52%] h-[64%] md:w-[52%] object-cover' width={50} height={50} src={profilePhoto} alt="Profile" />
+                        </div>
                         <div className='ml-[-22px]'>
                             <div>Hello!</div>
                             <div className='font-bold'>{username}</div>
                         </div>
                     </div>
                     <div className='bg-white rounded-md'>
-                        <ul className='bg-white text-[10px] md:text-lg z-10 text-end gap-3 flex flex-col rounded-md border border-gray-200 '>
+                        <ul className='bg-white text-[10px] md:text-lg z-10 text-end  flex flex-col rounded-md border border-gray-200 '>
                             <li
-                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8 rounded-t-md"
+                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] pl-3  px-0 md:px-3 py-2 md:py-3 pr-0 md:pr-8 rounded-t-md"
                                 onClick={handleProfile}
                             >
                                 <NavLink className="flex gap-3 items-center w-[100%] hover:text-red-700" to="/profile">
@@ -104,24 +151,24 @@ const Profile = () => {
                                 </NavLink>
                             </li>
                             <li
-                                className="list flex gap-3 items-center justify-start hover:bg-gray-300 hover:text-red-700 cursor-pointer w-[100%] px-3 py-1 md:py-1 pr-8"
+                                className="list flex gap-3 items-center justify-start hover:bg-gray-300  hover:text-red-700 w-[100%] pl-3  px-0 md:px-3 py-2 md:py-3 pr-0 md:pr-8 cursor-pointer"
                                 onClick={handleOrder}
                             >
                                 <BsBox />My Orders
                             </li>
-                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8">
+                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 hover:text-red-700 w-[100%] pl-3  px-0 md:px-3 py-2 md:py-3 pr-0 md:pr-8 cursor-pointer" onClick={handleAddress}>
                                 <FaShippingFast />Shipping Address
                             </li>
-                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8">
+                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 hover:text-red-700 w-[100%] pl-3  px-0 md:px-3 py-2 md:py-3 pr-0 md:pr-8 cursor-pointer" onClick={handleChangeAccount}>
                                 <MdAccountBox />Change Account
                             </li>
-                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-1 md:py-1 pr-8 rounded-b-md">
+                            <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 hover:text-red-700 w-[100%] pl-3  px-0 md:px-3 py-2 md:py-3 pr-0 md:pr-8 cursor-pointer rounded-b-md" onClick={handleChangePassword}>
                                 <CgPassword />Change Password
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div className="bg-white rounded-md w-[100%] md:w-[78%] border-none md:border border-gray-200 shadow-sm text-[15px] md:text-lg p-[9px] md:p-5">
+                <div className="bg-white rounded-md w-[100%] md:w-[78%] border  border-gray-200 shadow-sm text-[15px] md:text-lg p-[9px] md:p-5">
                     {isProfile &&
                         <div>
                             <div className='text-2xl text-gray-500 font-semibold marker:l-0 md:ml-2'>
@@ -140,7 +187,7 @@ const Profile = () => {
                                 <div className='flex flex-col items-center mt-5'>
                                     <div className="flex justify-center items-center gap-5">
                                         <div className="relative">
-                                            <img className='rounded-full w-16 md:w-32 h-16 md:h-32' src={profilePhoto} alt="Profile" />
+                                            <img className='rounded-full w-16 md:w-32 h-16 md:h-32 object-cover' src={profilePhoto} alt="Profile" />
                                             <input
                                                 type="file"
                                                 id="photoUpload"
@@ -151,7 +198,7 @@ const Profile = () => {
                                             />
                                             <button
                                                 onClick={() => document.getElementById('photoUpload').click()}
-                                                className='absolute right-0 bottom-0 mt-3 px-1 py-1 bg-white border border-blue-500 text-black rounded-md hover:bg-blue-600'
+                                                className={`absolute right-0 bottom-0 mt-3 px-1 py-1 bg-white border border-blue-500 text-black rounded-md ${isEditing ? 'hover:bg-blue-600' : 'hover:none'}  `}
                                             >
                                                 <PiPencil />
                                             </button>
@@ -238,6 +285,9 @@ const Profile = () => {
                     }
 
                     {isOrder && <MyOrders />}
+                    {isAddress && <ShipAddress />}
+                    {isChangeAccount && <ChangeAccount />}
+                    {isChangePassword && <ChangePassword />}
                 </div>
             </div>
         </div>

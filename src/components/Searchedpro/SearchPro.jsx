@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Data from '../Data/Data'; // Assuming Data is your product list
+import Data from '../Data/Data'; 
+import Assured from "../../images/Assured.png"
+import Star from "../../images/Star.webp"
 
 const SearchPro = () => {
     const navigate = useNavigate()
@@ -13,8 +15,8 @@ const SearchPro = () => {
   });
 
   return (
-    <div>
-      <h1 className='text-center font-serif text-xl bg-gray-300 my-4'>Search Results for "{category}"</h1>
+    <div className='poppins-regular'>
+      <h1 className='text-center font-serif text-xl bg-gray-300 my-4 poppins-regular'>Search Results for "{category}"</h1>
       <div className='flex flex-wrap justify-around items-center'>
         {filteredData.length > 0 ? (
           filteredData.map(item => (
@@ -22,6 +24,7 @@ const SearchPro = () => {
               <div className='flex flex-col justify-center border p-5 rounded-3xl shadow-lg'>
                 <img className='md:w-60 w-40 h-32 md:h-60' src={item.image} alt={item.id} />
                 <div className='absolute flex bottom-2 left-2 items-end md:left-10'>
+                <img className=' z-10 w-5  animate-none' src={Assured} alt="AssuredLogo" />
                   <span className='text-[10px] text-gray-500'>100% Guaranteed</span>
                 </div>
               </div>
@@ -31,6 +34,7 @@ const SearchPro = () => {
                   <h1>₹{item.price}</h1>
                   <button  className='bg-red-500 text-white text-[10px] md:text-[15px] md:px-9 font-bold px-3 rounded-xl'>Details</button>
                 </div>
+                <img className='mt-[-28px] ml-[-14px] md:ml[-17px] w-28 md:w-36' src={Star} alt="Star" />
               </div>
             </li>
           ))
