@@ -101,7 +101,7 @@ const MyOrders = () => {
                 <div className='text-[10px] md:text-sm ml-4'>
                   <div className='font-bold text-red-900'>Order ID: {product.id}</div>
                   <div>{product.title}</div>
-                  <div className='font-bold'>₹{product.price}</div>
+                  <div className='font-bold'>₹{product.price-(product.price *0.25)}</div>
                 </div>
               </div>
               <div className='mt-2'>
