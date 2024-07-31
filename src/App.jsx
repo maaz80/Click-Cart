@@ -19,12 +19,6 @@ import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/SearchBar/SearchBar";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import first from "./images/1.png"
-import second from "./images/2.png"
-import third from "./images/3.webp"
-import fourth from "./images/4.png"
-import fifth from "./images/5.png"
-import sixth from "./images/6.png"
 
 export default function App() {
   const [favoriteList, setFavoriteList] = useState(() => {
@@ -116,7 +110,7 @@ export default function App() {
   return (
     <div>
       {isLoaderVisible && (
-        <div ref={loaderRef} className="w-[100%] h-[100%] fixed  z-50 mainloader" >
+        <div ref={loaderRef} className="w-[100%] h-[100%] fixed  z-50 bg-gradient-to-r from-blue-200 to-red-100 " >
           <div className="flex fixed top-5 left-5">
             <div className="firstText text-[5vw] md:text-[3vw] text-red-700 carter-one-regular">E</div>
             <div className="firstText text-[5vw] md:text-[3vw] text-orange-700 carter-one-regular">-</div>

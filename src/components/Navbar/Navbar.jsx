@@ -43,16 +43,16 @@ export default function Navbar() {
     return (
         <div className="flex items-center justify-between p-2 rounded-b-xl md:rounded-none bg-transparent poppins-regular">
             <div className="flex items-center">
-                <span className="trade-winds-regular text-red-600 text-xl">C</span>
-                <span className="trade-winds-regular text-orange-600 text-xl">L</span>
-                <span className="trade-winds-regular text-yellow-600 text-xl">I</span>
-                <span className="trade-winds-regular text-green-600 text-xl">C</span>
-                <span className="trade-winds-regular text-blue-600 text-xl">K</span>
-                <span className="trade-winds-regular text-purple-600 text-xl">-</span>
-                <span className="trade-winds-regular text-pink-600 text-xl">C</span>
-                <span className="trade-winds-regular text-amber-600 text-xl">A</span>
-                <span className="trade-winds-regular text-cyan-600 text-xl">R</span>
-                <span className="trade-winds-regular text-teal-600 text-xl">T</span>
+                <span className="trade-winds-regular text-red-600 text-lg md:text-xl">C</span>
+                <span className="trade-winds-regular text-orange-600 text-lg md:text-xl">L</span>
+                <span className="trade-winds-regular text-yellow-600 text-lg md:text-xl">I</span>
+                <span className="trade-winds-regular text-green-600 text-lg md:text-xl">C</span>
+                <span className="trade-winds-regular text-blue-600 text-lg md:text-xl">K</span>
+                <span className="trade-winds-regular text-purple-600 text-lg md:text-xl">-</span>
+                <span className="trade-winds-regular text-pink-600 text-lg md:text-xl">C</span>
+                <span className="trade-winds-regular text-amber-600 text-lg md:text-xl">A</span>
+                <span className="trade-winds-regular text-cyan-600 text-lg md:text-xl">R</span>
+                <span className="trade-winds-regular text-teal-600 text-lg md:text-xl">T</span>
             </div>
             <input
                 className="text-sm rounded-md px-2 bg-transparent border border-black w-[60%] h-8 hidden md:block"

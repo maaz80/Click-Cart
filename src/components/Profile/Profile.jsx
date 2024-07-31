@@ -123,10 +123,10 @@ const Profile = () => {
         <div>
             <div className='w-[100%] md:w-[92%] rounded-md m-auto p-5 flex gap-5 poppins-regular'>
                 <button
-                    className='fixed top-10 md:top-16 bg-white border rounded-md p-1 md:p-3 left-[-5px] flex md:hidden'
+                    className='fixed top-10 md:top-16 bg-gray-600 border rounded-md p-1 md:p-3 left-[-5px] flex md:hidden'
                     onClick={handleSidebar}
                 >
-                    <img src={`${isSidebar ? Left : Right} `} alt="Right" width={19} />
+                    <img src={`${isSidebar ? Left : Right} `} alt="Right" width={19} className='invert'/>
                 </button>
                 <div
                     className={`absolute md:relative md:flex flex-col w-[39%] md:w-[18%] gap-4 transition-transform duration-300 top-[68px] md:top-0 z-10 ${isSidebar ? 'translate-x-[-21px]' : 'translate-x-[-216px]'} md:translate-x-0`}
