@@ -17,7 +17,7 @@ import Products from "../Products/Products";
 import SearchBar from "../SearchBar/SearchBar";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
-import { useGSAP } from "@gsap/react";
+
 import gsap from "gsap"
 import WheelSlide from "../WheelSlide/WheelSlide";
 import { useNavigate } from "react-router-dom";
@@ -48,7 +48,7 @@ export default function Home() {
       if (event.deltaY > 0) {
         gsap.to(".marque", {
           x: "-200%",
-          duration: 4,
+          duration: 3,
           repeat: -1,
           ease: "none"
         });
@@ -69,7 +69,7 @@ export default function Home() {
     }
     function handleTouchMove(event) {
       const touch = event.touches[0];
-      if (touch.clientY > window.innerHeight/ 2) {
+      if (touch.clientY > window.innerHeight / 2) {
 
         gsap.to(".marque", {
           x: "-200%",
@@ -98,12 +98,12 @@ export default function Home() {
 
   }, []);
 
-const handleUp=()=>{
-  window.scrollTo({top: 0 ,behavior:"smooth"})
-}
+  const handleUp = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
   return (
     <div>
-        <img src={Up} alt="Up"  className=" bottom-5 right-5 z-50 fixed w-[35px] md:w-[50px] " onClick={handleUp}/>
+      <img src={Up} alt="Up" className=" bottom-5 right-5 z-40 fixed w-[35px] md:w-[50px] " onClick={handleUp} />
       <div className="block md:hidden">
         <SearchBar />
       </div>
@@ -233,7 +233,7 @@ const handleUp=()=>{
       </div>
 
       <div className="page  bg-emerald-300  poppins-regular">
-       <WheelSlide/>
+        <WheelSlide />
       </div>
       <div className="mt-5">
         <Products />

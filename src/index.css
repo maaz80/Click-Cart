@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Trade+Winds&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,6 +23,12 @@
     font-weight: 400;
     font-style: normal;
   }
+  .carter-one-regular {
+    font-family: "Carter One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
   .text-45xl {
     font-size: 2.05rem;
   }
@@ -234,3 +241,13 @@
   animation-range: entry 0 cover 15%;
 }
 
+.mainloader {
+  background-image: url("./images/EBG.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the entire area */
+  width: 100%;
+  height: 100%;
+  position: fixed; /* Ensures it stays fixed relative to the viewport */
+  z-index: 50; /* Keeps it on top of other elements */
+}
