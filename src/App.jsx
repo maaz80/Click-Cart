@@ -27,23 +27,33 @@ export default function App() {
   });
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
   const loaderRef = useRef(null);
+  const [cartCount, setCartCount] = useState(()=>{
+    const storedCartCount = localStorage.getItem('cartCount')
+    return storedCartCount && !isNaN(storedCartCount) ? parseInt(storedCartCount, 10) : 0;
+  })
 
   useEffect(() => {
     localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
   }, [favoriteList]);
+  useEffect(() => {
+    localStorage.setItem("cartCount", cartCount);
+  }, [cartCount]);
 
   const handleAddToFavorite = (product) => {
     setFavoriteList((prevList) => {
       const isFavorite = prevList.some((item) => item.id === product.id);
       if (isFavorite) {
+        setCartCount((prevCount) => prevCount - 1)
         return prevList.filter((item) => item.id !== product.id);
       } else {
+        setCartCount((prevCount) => prevCount + 1)
         return [...prevList, product];
       }
     });
   };
-
+  
   const handleRemoveFromFavorites = (productId) => {
+    setCartCount((prevCount) => prevCount - 1)
     setFavoriteList((prevList) => prevList.filter((item) => item.id !== productId));
   };
 
@@ -53,7 +63,7 @@ export default function App() {
     });
     tl.from(".loader .first", {
       x: -700,
-      duration: 2,
+      duration: 1.5,
       opacity: 0,
       stagger: -0.2,
     });
@@ -61,40 +71,20 @@ export default function App() {
       ".loader .second",
       {
         x: 700,
-        duration: 2,
+        duration: 1.5,
         opacity: 0,
         stagger: 0.2,
       },
       0
     );
-    tl.from(
-      ".firstimg",
-      {
-        x: -50,
-        duration: 2,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "power2.inOut",
-      },
-    );
-    tl.from(
-      ".secondimg",
-      {
-        y: -50,
-        duration: 2,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "power2.inOut",
-      },
-      3
-    );
+
     tl.from(
       ".firstText",
       {
         x: -1500,
-        duration: 2,
+        duration: 1,
         opacity: 0,
-        stagger: 0.2,
+        stagger: 0.1,
         ease: "power2.inOut",
       },
       1
@@ -152,7 +142,7 @@ export default function App() {
           </div>
         </div>
       )}
-      <Navbar />
+      <Navbar cartCount={cartCount} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/details/:productId" element={<Details handleAddToFavorite={handleAddToFavorite} favoriteList={favoriteList} />} />

@@ -17,6 +17,7 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState(""); // State for the message text
   const detailsRef = useRef(null);
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     window.scrollTo(0, 0);

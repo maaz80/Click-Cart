@@ -21,7 +21,7 @@ const Favorite = ({ favoriteList, handleRemoveFromFavorites }) => {
         {
           favoriteList && favoriteList.length > 0 ?
             favoriteList.map(item => (
-              <div key={item.id} className=" border w-[10.5rem] md:w-80 h-72 md:h-[480px] flex flex-col justify-start items-start mb-5 md:p-5 p-1 rounded-3xl shadow-lg bg-slate-100">
+              <div key={item.id} className=" border w-[10.5rem]  md:w-80 h-72 md:h-[480px] flex flex-col justify-start items-start mb-5 md:p-5 p-1 rounded-3xl shadow-lg bg-slate-100">
                 <div className='flex flex-col justify-center  border p-5 rounded-3xl shadow-lg '>
                   <img src={item.image} alt={item.title} className="md:w-60 w-40 h-32 md:h-60" />
                 </div>

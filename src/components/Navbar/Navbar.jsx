@@ -5,7 +5,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { BiHome, BiLogInCircle, BiMenuAltRight, BiSupport } from 'react-icons/bi';
 import { MdDetails } from 'react-icons/md';
 
-export default function Navbar() {
+export default function Navbar({ cartCount}) {
     const [searchQuery, setSearchQuery] = useState('');
     const [dropdown, setDropdown] = useState(false);
     const [login, setLogin] = useState(false);
@@ -74,8 +74,9 @@ export default function Navbar() {
                 <NavLink className="hover:text-red-600" to='/login'>
                     <BiLogInCircle />
                 </NavLink>
-                <div className="hover:text-red-600">
-                    <NavLink to="/favorites"><FaCartShopping /></NavLink>
+                <div className="hover:text-red-600 relative">
+                    <NavLink to="/favorites"><FaCartShopping />   <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-600 rounded-sm text-[10px] text-white  flex justify-center items-center">{cartCount}</div></NavLink>
+                 
                 </div>
                 <div onClick={handleProfile} className="hover:text-red-600 cursor-pointer">
                     <BiMenuAltRight />

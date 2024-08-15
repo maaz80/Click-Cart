@@ -43,60 +43,8 @@ export default function Home() {
     fetchData();
   }, [])
 
-  useEffect(() => {
-    function moving(event) {
-      if (event.deltaY > 0) {
-        gsap.to(".marque", {
-          x: "-200%",
-          duration: 3,
-          repeat: -1,
-          ease: "none"
-        });
-        gsap.to(".marque img", {
-          rotate: 180
-        })
-      } else {
-        gsap.to(".marque", {
-          x: "0%",
-          duration: 3,
-          repeat: -1,
-          ease: "none"
-        });
-        gsap.to(".marque img", {
-          rotate: 0
-        })
-      }
-    }
-    function handleTouchMove(event) {
-      const touch = event.touches[0];
-      if (touch.clientY > window.innerHeight / 2) {
 
-        gsap.to(".marque", {
-          x: "-200%",
-          duration: 4,
-          repeat: -1,
-          ease: "none"
-        });
-        gsap.to(".marque img", {
-          rotate: 180
-        })
-      } else {
-        gsap.to(".marque", {
-          x: "0%",
-          duration: 4,
-          repeat: -1,
-          ease: "none"
-        });
-        gsap.to(".marque img", {
-          rotate: 0
-        })
-      }
-    }
 
-    window.addEventListener("wheel", moving);
-    window.addEventListener("touchmove", handleTouchMove);
-
-  }, []);
 
   const handleUp = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
