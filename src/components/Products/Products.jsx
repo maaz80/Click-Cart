@@ -39,7 +39,7 @@ const Products = () => {
                     <div className=' flex flex-wrap justify-around items-center'>
                         {
                             data.slice(0, limit).map(item => (
-                                <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[10.5rem] md:w-80 h-72 md:h-[450px] flex flex-col justify-start items-start mb-5 md:p-5 p-1 rounded-3xl shadow-lg bg-slate-100 poppins-regular'>
+                                <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[10.5rem] md:w-80 h-72 md:h-[450px] flex flex-col justify-start items-start mb-2 md:p-5 p-1 rounded-3xl shadow-md bg-slate-100 poppins-regular '>
                                     <div className='flex flex-col justify-center   border p-5 rounded-3xl shadow-lg '>
                                         <img className='md:w-60 w-40 h-32 md:h-60' src={item.image} alt={item.id} />
                                         <div className='absolute flex bottom-2 left-2 items-end  md:left-10'>

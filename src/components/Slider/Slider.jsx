@@ -68,9 +68,9 @@ const ImageSlider = () => {
             {SliderData.map(item => {
                 return (
                     <div className='flex' key={item.id}>
-                        <div className='flex flex-row bg-gradient-to-r from-gray-400 to-gray-100 w-[93%] mx-auto rounded-3xl md:mt-10 mt-5 justify-around h-[120px] md:h-[350px]'>
+                        <div className='flex flex-row bg-gradient-to-r from-gray-400 to-gray-100 w-[93%] mx-auto rounded-3xl md:mt-2 mt-0 justify-around h-[120px] md:h-[280px]'>
                             {/* For heading */}
-                            <div className='flex flex-col justify-center items-center md:gap-6 gap-1 text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500'>
+                            <div className='flex flex-col justify-center items-center md:gap-3 gap-1 text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500'>
                                 <h1 className='leckerli-one-regular text-sm md:text-3xl'>{item.subtitle}</h1>
                                 <h1 className='trade-winds-regular font-extrabold text-xl md:text-8xl'>{item.title}</h1>
                                 <h1 className='leckerli-one-regular text-sm md:text-3xl'>{item.title2}</h1>

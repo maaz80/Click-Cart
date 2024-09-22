@@ -110,7 +110,7 @@ export default function Home() {
       <div>
         <ImageSlider />
       </div>
-      <div className="flex flex-row md:flex-col overflow-x-auto overflow-y-hidden  ml-2 md:ml-12 mt-4 md:mt-10">
+      <div className="flex flex-row md:flex-col overflow-x-auto overflow-y-hidden  ml-2 md:ml-9 mt-2 md:mt-2 mb-2 md:mb-5 ">
         <div className="flex space-x-0.5">
           <BigCard
             bgColor="bg-gradient-to-r from-red-600 to-red-200"
@@ -196,7 +196,7 @@ export default function Home() {
         <Service textSize="md:text-lg text-[7px]" iconSize="text-[20px] md:text-4xl" gap="gap-1 md:gap-4" />
       </div>
 
-      <div className="w-[97%] m-auto">
+      <div className="w-[97%] m-auto mt-[-10px]">
         <Sale />
       </div>
 
@@ -205,10 +205,10 @@ export default function Home() {
         {error && <div>Error:{error.message}</div>}
         {
           !loading && !error && data.length > 0 && (
-            <div className=' flex flex-wrap justify-around items-center mt-5'>
+            <div className=' flex flex-wrap justify-around items-center mt-2'>
               {
                 data.slice(0, limit).map(item => (
-                  <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[10.5rem] md:w-80 h-72 md:h-[450px] flex flex-col justify-start items-start mb-5 md:p-5 p-1 rounded-3xl shadow-lg bg-slate-100'>
+                  <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[10.5rem] md:w-80 h-72 md:h-[450px] flex flex-col justify-start items-start mb-2 md:p-5 p-1 rounded-3xl shadow-md bg-slate-100'>
                     <div className='flex flex-col justify-center   border p-5 rounded-3xl shadow-lg '>
                       <img className='md:w-60 w-40 h-32 md:h-60' src={item.image} alt={item.id} />
                       <div className='absolute flex bottom-2 left-2 items-end  md:left-10'>
@@ -235,7 +235,7 @@ export default function Home() {
       <div className="page  bg-emerald-300  poppins-regular">
         <WheelSlide />
       </div>
-      <div className="mt-5">
+      <div className="mt-2">
         <Products />
       </div>
       <div className="mb-[-23px]">
