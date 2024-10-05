@@ -10,7 +10,7 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(6);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -78,14 +78,14 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
         </div>
 
         {/* Details Compartment */}
-        <div ref={detailsRef} className='w-[99%] md:w-[60%] border p-5 md:p-10 flex flex-col rounded-xl border-gray-400 md:h-[600px] overflow-scroll scroll-smooth hide-scrollbar'>
-          <h1 className='text-2xl font-bold mb-4'>{product.title}</h1>
-          <div className="flex gap-3 ">
-            <span className='text-lg mb-4'>₹{product.price}</span>
-            <span className='text-lg mb-4 line-through text-gray-400'>₹{product.price + 2000}</span>
-            <img className="w-28 mt-[-23px]" src={Star} alt="Rating" />
+        <div ref={detailsRef} className='w-[99%] md:w-[60%] border p-5  flex flex-col rounded-xl border-gray-400 md:h-[600px] overflow-scroll scroll-smooth hide-scrollbar'>
+          <h1 className='text-2xl font-bold -mb-1'>{product.title}</h1>
+          <div className="flex items-center gap-3 h-[65px]">
+            <span className='text-lg '>₹{product.price}</span>
+            <span className='text-lg  line-through text-gray-400'>₹{product.price + 2000}</span>
+            <img className="w-28 md:w-40 mt-[-5px] " src={Star} alt="Rating" />
           </div>
-          <div className="mb-5 md:my-6 w-[100%] md:ml-[-10px]">
+          <div className="mb-5 md:mb-6 w-[100%] md:ml-[-10px]">
             <Service textSize="md:text-sm text-[5px]" iconSize="text-sm md:text-2xl" gap="gap-1 md:gap-3" />
           </div>
           <p className='mb-4 p-2 rounded-xl text-gray-500 text-sm md:text-normal'><span className="font-bold text-gray-700 pr-3">Description: </span>{product.description}</p>
@@ -106,23 +106,24 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
             {data.length > 0 && (
               <div className='flex flex-wrap justify-around items-center'>
                 {data.slice(0, limit).map(item => (
-                  <li key={item.id} onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[7.5rem] md:w-80 h-[14rem] md:h-[480px] flex flex-col justify-start items-start mb-5 md:p-5 p-1 rounded-3xl shadow-lg bg-slate-100'>
-                    <div className='flex flex-col justify-center border p-5 rounded-3xl shadow-lg'>
-                      <img className='md:w-60 w-40 h-[5rem] md:h-64 ' src={item.image} alt={item.title} />
-                      <div className='absolute flex bottom-2 left-2 items-end md:left-10'>
-                        <img className='z-10 w-5' src={Assured} alt="AssuredLogo" />
-                        <span className='md:text-[10px] text-[8px] text-gray-500'>100% Guaranteed</span>
-                      </div>
+                    <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[10.5rem] md:w-56 h-72 md:h-[330px] flex flex-col justify-start items-start mb-2 md:p-2 p-1 rounded-3xl shadow-md bg-slate-100 poppins-regular '>
+                    <div className='flex flex-col justify-center   border p-5 rounded-3xl shadow-lg '>
+                        <img className='md:w-40 w-40 h-32 md:h-40' src={item.image} alt={item.id} />
+                       
                     </div>
-                    <div className='flex flex-col justify-start md:p-5 p-2'>
-                      <h2 className='font-bold text-sm md:text-xl overflow-hidden w-24 md:w-40 h-5 md:h-7 md:mb-1'>{item.title}</h2>
-                      <div className='flex gap-3 md:gap-20 text-[10px] md:text-[17px] mt-1'>
-                        <h1>₹{item.price}</h1>
-                        <button className='bg-red-500 text-white text-[7px] md:text-[15px] md:px-9 font-bold px-3 rounded-xl'>Details</button>
-                      </div>
-                      <img className='mt-[-20px] md:mt-[-24px] ml-[-11px] md:ml[-17px] w-28 md:w-36' src={Star} alt="Star" />
+                    <div className='flex flex-col justify-start md:p-3 p-2 w-[100%] '>
+                        <h2 className='font-bold overflow-hidden w-36 h-7 '>{item.title}</h2>
+                        <div className='flex justify-between w-[100%]'>
+                            <h1 >₹{item.price}</h1>
+                            <button className='bg-red-500 text-white text-[10px] md:text-[13px] md:px-6 font-semibold px-3 rounded-md' onClick={() => navigate(`/details/${item.id}`)}>Details</button>
+                        </div>
+                        <img className='mt-[-25px] md:mt-[-28px] ml-[-14px] md:ml[-17px] w-28 md:w-32 ' src={Star} alt="Star" />
+                        <div className=' flex absolute bottom-2 md:bottom-1.5 items-center -ml-1'>
+                            <img className=' z-10 w-4 md:w-5  animate-none' src={Assured} alt="AssuredLogo" />
+                            <span className='text-[10px] text-gray-500'>100% Garanteed</span>
+                        </div>
                     </div>
-                  </li>
+                </li>
                 ))}
               </div>
             )}

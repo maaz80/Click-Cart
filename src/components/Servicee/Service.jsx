@@ -3,7 +3,7 @@ import { FaCarSide , FaHeadphones, FaWallet , FaCircleCheck  } from 'react-icons
 
 const Service = ({textSize , iconSize ,gap}) => {
     return (
-        <div className='flex justify-around items-center font-serif gap-3'>
+        <div className='flex justify-around items-center poppins-regular gap-3'>
             <div className={`flex justify-center items-center text-red-600 ${gap}`}>
                 {/* Icon  */}
                 <div className={`${iconSize}`}>

@@ -41,7 +41,7 @@ export default function Navbar({ cartCount}) {
     }, []);
 
     return (
-        <div className="flex items-center justify-between p-2 rounded-b-xl md:rounded-none bg-transparent poppins-regular">
+        <div className="flex items-center justify-between p-2 rounded-b-xl bg-black/5 backdrop-blur-sm poppins-regular">
             <div className="flex items-center">
                 <span className="trade-winds-regular text-red-600 text-lg md:text-xl">C</span>
                 <span className="trade-winds-regular text-orange-600 text-lg md:text-xl">L</span>
@@ -55,7 +55,7 @@ export default function Navbar({ cartCount}) {
                 <span className="trade-winds-regular text-teal-600 text-lg md:text-xl">T</span>
             </div>
             <input
-                className="text-sm rounded-md px-2 bg-transparent border border-black w-[60%] h-8 hidden md:block"
+                className="poppins-regular text-sm rounded-md px-2 bg-transparent border border-black w-[60%] h-8 hidden md:block"
                 type="text"
                 placeholder="Search Items"
                 list="suggestions"

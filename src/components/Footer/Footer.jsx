@@ -5,7 +5,7 @@ import FB from '../../images/FB.webp'
 
 const Footer = () => {
   return (
-    <footer className="bg-amber-800 text-white py-5 text-center view rounded-xl">
+    <footer className="bg-amber-800 text-white py-5 text-center view rounded-t-xl poppins-regular">
                 <div className="flex justify-around flex-wrap">
                     <div className="footer-section  flex-1 min-w-[200px] m-2 p-2 rounded ">
                         <h2 className="text-xl mb-2">About</h2>

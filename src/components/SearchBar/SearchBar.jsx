@@ -14,9 +14,9 @@ const SearchBar = () => {
     const suggestions = ['Mobiles', 'HeadSets', 'Watches', 'Vr Box'];
 
     return (
-        <div className='m-auto flex justify-center items-center'>
+        <div className='m-auto flex justify-center items-center poppins-regular '>
             <input
-                className="text-sm rounded-md px-2 relative bg-transparent border border-black w-[90%] h-8 my-3"
+                className=" poppins-regular text-sm rounded-md px-2 relative bg-transparent border border-black w-[90%] h-8 my-3"
                 type="text"
                 placeholder="Search Items"
                 list="suggestions"

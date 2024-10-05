@@ -17,16 +17,16 @@ import Login from "./components/Login/Login";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/SearchBar/SearchBar";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
 
 export default function App() {
   const [favoriteList, setFavoriteList] = useState(() => {
     const storedFavorite = localStorage.getItem("favoriteList");
     return storedFavorite ? JSON.parse(storedFavorite) : [];
   });
-  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
-  const loaderRef = useRef(null);
+  // const [isLoaderVisible, setIsLoaderVisible] = useState(true);
+  // const loaderRef = useRef(null);
   const [cartCount, setCartCount] = useState(()=>{
     const storedCartCount = localStorage.getItem('cartCount')
     return storedCartCount && !isNaN(storedCartCount) ? parseInt(storedCartCount, 10) : 0;
@@ -57,49 +57,49 @@ export default function App() {
     setFavoriteList((prevList) => prevList.filter((item) => item.id !== productId));
   };
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      onComplete: () => setIsLoaderVisible(false),
-    });
-    tl.from(".loader .first", {
-      x: -700,
-      duration: 1.5,
-      opacity: 0,
-      stagger: -0.2,
-    });
-    tl.from(
-      ".loader .second",
-      {
-        x: 700,
-        duration: 1.5,
-        opacity: 0,
-        stagger: 0.2,
-      },
-      0
-    );
+  // useGSAP(() => {
+  //   const tl = gsap.timeline({
+  //     onComplete: () => setIsLoaderVisible(false),
+  //   });
+  //   tl.from(".loader .first", {
+  //     x: -700,
+  //     duration: 1.5,
+  //     opacity: 0,
+  //     stagger: -0.2,
+  //   });
+  //   tl.from(
+  //     ".loader .second",
+  //     {
+  //       x: 700,
+  //       duration: 1.5,
+  //       opacity: 0,
+  //       stagger: 0.2,
+  //     },
+  //     0
+  //   );
 
-    tl.from(
-      ".firstText",
-      {
-        x: -1500,
-        duration: 1,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "power2.inOut",
-      },
-      1
-    );
+  //   tl.from(
+  //     ".firstText",
+  //     {
+  //       x: -1500,
+  //       duration: 1,
+  //       opacity: 0,
+  //       stagger: 0.1,
+  //       ease: "power2.inOut",
+  //     },
+  //     1
+  //   );
 
-    tl.to(loaderRef.current, {
-      x: window.innerWidth,
-      duration: 1,
-      ease: "power2.inOut",
-    });
-  });
+  //   tl.to(loaderRef.current, {
+  //     x: window.innerWidth,
+  //     duration: 1,
+  //     ease: "power2.inOut",
+  //   });
+  // });
 
   return (
     <div>
-      {isLoaderVisible && (
+      {/* {isLoaderVisible && (
         <div ref={loaderRef} className="w-[100%] h-[100%] fixed  z-50 bg-gradient-to-r from-blue-200 to-red-100 " >
           <div className="flex fixed top-5 left-5">
             <div className="firstText text-[5vw] md:text-[3vw] text-red-700 carter-one-regular">E</div>
@@ -141,7 +141,7 @@ export default function App() {
             <h1 className="second inline-block overflow-hidden text-teal-600">T</h1>
           </div>
         </div>
-      )}
+      )} */}
       <Navbar cartCount={cartCount} />
       <Routes>
         <Route path="/" element={<Home />} />
