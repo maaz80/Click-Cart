@@ -109,6 +109,13 @@ export default function Home() {
         <SearchBar />
       </div>
 
+      {/* <div className="w-[97%] mt-2 h-[91vh] rounded-xl bg-transparent m-auto relative z-10">
+        <div></div>
+        <div className=" right-0 ">
+          <img src={MainImage} alt="Main"  className="absolute right-0 w-[40%] bottom-0"/>
+        </div>
+      </div> */}
+
       <div>
         <ImageSlider />
       </div>

@@ -10,7 +10,7 @@ import OrderSummary from '../Payment/OrderSumary';
 
 const Payment = () => {
   const location = useLocation();
-  const { product, address } = location.state || {}; // Corrected
+  const { product, address } = location.state || {}; 
   const navigate = useNavigate();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('creditCard');
 
@@ -23,7 +23,7 @@ const Payment = () => {
       console.error('Saved products is not an array, resetting to an empty array');
       savedProducts = [];
     }
-    product.address = address; // Ensure address is from the correct source
+    product.address = address; 
     product.paymentMethod = selectedPaymentMethod;
 
     savedProducts.push(product);

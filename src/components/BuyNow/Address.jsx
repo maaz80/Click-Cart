@@ -45,9 +45,9 @@ const Address = () => {
                         <div className='h-1 w-[100%] bg-gray-500 mt-3 mb-10'></div>
         <div className="name flex flex-col md:flex-row w-[100%] mb-4 gap-4">
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
-            <span className='text-sm'>First Name</span>
+            <span className='text-sm md:text-base'>First Name</span>
             <input
-              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2'
+              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2 h-10'
               type="text"
               name="firstName"
               value={formData.firstName}
@@ -56,9 +56,9 @@ const Address = () => {
             />
           </div>
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
-            <span className='text-sm'>Last Name</span>
+            <span className='text-sm md:text-base'>Last Name</span>
             <input
-              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2'
+              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2 h-10'
               type="text"
               name="lastName"
               value={formData.lastName}
@@ -71,9 +71,9 @@ const Address = () => {
         {/* Contact */}
         <div className="contact flex flex-col md:flex-row w-[100%] mb-4 gap-4">
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
-            <span className='text-sm'>Email ID</span>
+            <span className='text-sm md:text-base'>Email ID</span>
             <input
-              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2'
+              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2 h-10'
               type="email"
               name="email"
               value={formData.email}
@@ -82,9 +82,9 @@ const Address = () => {
             />
           </div>
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
-            <span className='text-sm'>Phone Number</span>
+            <span className='text-sm md:text-base'>Phone Number</span>
             <input
-              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2'
+              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2 h-10'
               type="number"
               name="phone"
               value={formData.phone}
@@ -97,9 +97,9 @@ const Address = () => {
         {/* Address */}
         <div className="contact flex flex-col md:flex-row w-[100%] mb-4 gap-4">
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
-            <span className='text-sm'>Address</span>
+            <span className='text-sm md:text-base'>Address</span>
             <input
-              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2'
+              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2 h-10'
               type="text"
               name="address"
               value={formData.address}
@@ -108,9 +108,9 @@ const Address = () => {
             />
           </div>
           <div className='flex flex-col gap-1 w-[90%] md:w-[50%]'>
-            <span className='text-sm'>Postal Code</span>
+            <span className='text-sm md:text-base'>Postal Code</span>
             <input
-              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2'
+              className='border w-[110%] md:w-[95%] rounded-lg border-gray-400 pl-2 h-10'
               type="number"
               name="postalCode"
               value={formData.postalCode}

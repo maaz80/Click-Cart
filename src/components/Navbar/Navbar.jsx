@@ -41,7 +41,7 @@ export default function Navbar({ cartCount}) {
     }, []);
 
     return (
-        <div className="flex items-center justify-between p-2 rounded-b-xl bg-black/5 backdrop-blur-sm poppins-regular">
+        <div className="flex items-center justify-between p-2 rounded-b-xl bg-black/5 backdrop-blur-sm poppins-regular ">
             <div className="flex items-center">
                 <span className="trade-winds-regular text-red-600 text-lg md:text-xl">C</span>
                 <span className="trade-winds-regular text-orange-600 text-lg md:text-xl">L</span>
@@ -82,7 +82,7 @@ export default function Navbar({ cartCount}) {
                     <BiMenuAltRight />
                 </div>
                 {dropdown &&
-                    <ul className='absolute top-[42px] right-0 bg-white text-[15px] md:text-lg z-10 text-end gap-3 flex flex-col rounded-md shadow-md'>
+                    <ul className='absolute top-[42px] right-0 bg-white text-[15px] md:text-lg z-auto text-end gap-3 flex flex-col rounded-md shadow-md'>
                         <li className="list flex gap-3 items-center justify-start hover:bg-gray-300 w-[100%] px-3 py-0 md:py-1 pr-8 rounded-t-md">
                             <NavLink className="flex gap-3 items-center w-[100%] hover:text-red-400" to="/">
                                 <BiHome /> Home

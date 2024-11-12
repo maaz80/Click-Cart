@@ -17,7 +17,6 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState(""); // State for the message text
   const detailsRef = useRef(null);
-  const [count, setCount] = useState(0)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,9 +48,9 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
     handleAddToFavorite(product);
     const isFavorite = favoriteList.some(item => item.id === product.id);
     setMessageText(isFavorite ? "Removed from favorites!" : "Added to favorites!");
-    setShowMessage(true); // Show the message
+    setShowMessage(true); 
     setTimeout(() => {
-      setShowMessage(false); // Hide the message after 2 seconds
+      setShowMessage(false); 
     }, 2000);
   };
 
@@ -71,17 +70,17 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
 
   return (
     <div className='bg-gray-100 min-h-[95vh] flex items-center justify-center pb-7 poppins-regular'>
-      <div className='bg-white w-[95%] md:w-[85%] gap-5 h-full m-auto p-5 flex md:flex-row flex-col rounded-xl mt-6'>
+      <div className='bg-white w-[95%] md:w-[85%] gap-5 h-full m-auto p-2 md:p-5 flex md:flex-row flex-col rounded-xl mt-6'>
         {/* Image Compartment */}
         <div className='w-[99%] md:w-[40%] md:h-[600px] h-[320px] border border-gray-400 p-5 flex justify-center items-center rounded-xl bg-gray-100'>
           <img src={product.image} alt={product.title} className='max-w-full max-h-full rounded-xl' />
         </div>
 
         {/* Details Compartment */}
-        <div ref={detailsRef} className='w-[99%] md:w-[60%] border p-5  flex flex-col rounded-xl border-gray-400 md:h-[600px] overflow-scroll scroll-smooth hide-scrollbar'>
-          <h1 className='text-2xl font-bold -mb-1'>{product.title}</h1>
+        <div ref={detailsRef} className='w-[99%] md:w-[60%] border p-2 md:p-5  flex flex-col rounded-xl border-gray-400 md:h-[600px] overflow-scroll scroll-smooth hide-scrollbar'>
+          <h1 className='text-2xl font-bold -mb-1 ml-2 md:ml-0'>{product.title}</h1>
           <div className="flex items-center gap-3 h-[65px]">
-            <span className='text-lg '>₹{product.price}</span>
+            <span className='text-lg ml-2 md:ml-0'>₹{product.price}</span>
             <span className='text-lg  line-through text-gray-400'>₹{product.price + 2000}</span>
             <img className="w-28 md:w-40 mt-[-5px] " src={Star} alt="Rating" />
           </div>
@@ -106,19 +105,19 @@ const Details = ({ handleAddToFavorite, favoriteList }) => {
             {data.length > 0 && (
               <div className='flex flex-wrap justify-around items-center'>
                 {data.slice(0, limit).map(item => (
-                    <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[10.5rem] md:w-56 h-72 md:h-[330px] flex flex-col justify-start items-start mb-2 md:p-2 p-1 rounded-3xl shadow-md bg-slate-100 poppins-regular '>
+                    <li onClick={() => navigate(`/details/${item.id}`)} className='relative border w-[9rem] md:w-56 h-56 md:h-[330px] flex flex-col justify-start items-start mb-2 md:p-2 p-1 rounded-3xl shadow-md bg-slate-100 poppins-regular '>
                     <div className='flex flex-col justify-center   border p-5 rounded-3xl shadow-lg '>
-                        <img className='md:w-40 w-40 h-32 md:h-40' src={item.image} alt={item.id} />
+                        <img className='md:w-40 w-40 h-24 md:h-40' src={item.image} alt={item.id} />
                        
                     </div>
                     <div className='flex flex-col justify-start md:p-3 p-2 w-[100%] '>
-                        <h2 className='font-bold overflow-hidden w-36 h-7 '>{item.title}</h2>
+                        <h2 className='font-bold overflow-hidden w-36 h-6 md:h-7 '>{item.title}</h2>
                         <div className='flex justify-between w-[100%]'>
                             <h1 >₹{item.price}</h1>
-                            <button className='bg-red-500 text-white text-[10px] md:text-[13px] md:px-6 font-semibold px-3 rounded-md' onClick={() => navigate(`/details/${item.id}`)}>Details</button>
+                            <button className='bg-red-500 text-white text-[10px] md:text-[13px] md:px-6 font-semibold px-3 rounded-md hidden md:block' onClick={() => navigate(`/details/${item.id}`)}>Details</button>
                         </div>
-                        <img className='mt-[-25px] md:mt-[-28px] ml-[-14px] md:ml[-17px] w-28 md:w-32 ' src={Star} alt="Star" />
-                        <div className=' flex absolute bottom-2 md:bottom-1.5 items-center -ml-1'>
+                        <img className='mt-[-31px] md:mt-[-28px] ml-[-14px] md:ml[-17px] w-28 md:w-32 ' src={Star} alt="Star" />
+                        <div className=' md:flex absolute bottom-2 md:bottom-1.5 items-center -ml-1 hidden '>
                             <img className=' z-10 w-4 md:w-5  animate-none' src={Assured} alt="AssuredLogo" />
                             <span className='text-[10px] text-gray-500'>100% Garanteed</span>
                         </div>

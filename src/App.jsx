@@ -27,7 +27,7 @@ export default function App() {
   });
   // const [isLoaderVisible, setIsLoaderVisible] = useState(true);
   // const loaderRef = useRef(null);
-  const [cartCount, setCartCount] = useState(()=>{
+  const [cartCount, setCartCount] = useState(() => {
     const storedCartCount = localStorage.getItem('cartCount')
     return storedCartCount && !isNaN(storedCartCount) ? parseInt(storedCartCount, 10) : 0;
   })
@@ -51,7 +51,7 @@ export default function App() {
       }
     });
   };
-  
+
   const handleRemoveFromFavorites = (productId) => {
     setCartCount((prevCount) => prevCount - 1)
     setFavoriteList((prevList) => prevList.filter((item) => item.id !== productId));
@@ -142,7 +142,9 @@ export default function App() {
           </div>
         </div>
       )} */}
+      <div className="z-50 relative">
       <Navbar cartCount={cartCount} />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/details/:productId" element={<Details handleAddToFavorite={handleAddToFavorite} favoriteList={favoriteList} />} />
